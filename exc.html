@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       try{
+        let one = Number(prompt("Enter first number : "))
+        let two = Number(prompt("Enter second number: "))
+        if(typeof one ==="string" || typeof two ==="string"){
+            throw "input only sould be string"
+        }
+        alert(one + two)
+        console.log(one + two);
+       }catch(e){
+console.log(e);
+       }
+
+        console.log("hare");
+    </script>
+</body>
+</html>

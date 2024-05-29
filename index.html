@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        overflow-x: hidden;
+        font-family: "Courier New", Courier, monospace;
+      }
+      .parent {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+      .child {
+        display: flex;
+        flex-direction: column;
+        padding: 0px 3rem;
+      }
+      button {
+        all: unset;
+        border-radius: 5px;
+        font-weight: 700;
+        cursor: pointer;
+        margin-top: 2rem;
+        padding: 0.4rem 6rem;
+        background-color: royalblue;
+      }
+      button:hover {
+        transition: all 0.3s ease-in-out;
+        background-color: rgb(54, 89, 196);
+        color: white;
+      }
+      .btn-div {
+        display: flex;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent">
+      <div class="child">
+        <h1 class="heading" style="text-align: center">
+          Click the button to have a joke
+        </h1>
+        <div class="btn-div">
+          <button onclick="handlejoke()">Joke</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let heading = document.querySelector(".heading");
+      const handlejoke = async () => {
+        try {
+          const joke = await fetch("https://api.chucknorris.io/jokes/random");
+          const finaljoke = await joke.json();
+          heading.innerText = finaljoke.value;
+        } catch (e) {
+          console.log(e);
+        }
+      };
+    </script>
+  </body>
+</html>
